@@ -11,4 +11,10 @@ func Register(server *fiber.App) {
 
 	redirection := server.Group("/r")
 	redirection.Get("/:hash", handlers.RedirectionHandler)
+
+	server.Use(func(c *fiber.Ctx) error {
+		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{
+			"error": "Page not found",
+		})
+	})
 }

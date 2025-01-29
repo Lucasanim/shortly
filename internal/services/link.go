@@ -2,6 +2,7 @@ package services
 
 import (
 	"errors"
+	"fmt"
 	"time"
 
 	"github.com/Lucasanim/shortly/internal/models"
@@ -27,6 +28,7 @@ func (ls *LinkService) Create(creationRequest models.CreateLink) models.Link {
 	}
 
 	link = models.Link{
+		ID:           int(time.Now().UnixNano()),
 		Url:          creationRequest.Url,
 		Hash:         hash,
 		CreationDate: time.Now(),
@@ -42,6 +44,7 @@ func (ls *LinkService) Get(hash string) models.Link {
 }
 
 func (ls *LinkService) GetUrl(hash string) (string, error) {
+	fmt.Println("Getting url for hash: ", hash)
 	link := ls.Get(hash)
 
 	if (link != models.Link{}) {

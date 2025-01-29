@@ -40,3 +40,6 @@ appendonly.aof
 *.swp
 *.swo
 *~
+
+# Docker
+docker
