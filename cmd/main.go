@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/Lucasanim/shortly/config"
+	"github.com/Lucasanim/shortly/internal/cache"
 	"github.com/Lucasanim/shortly/internal/database"
 	"github.com/Lucasanim/shortly/internal/migrations"
 	"github.com/Lucasanim/shortly/internal/routes"
@@ -10,6 +11,7 @@ import (
 
 func main() {
 	config.LoadEnv()
+	cache.InitializeRedis()
 	database.InitializeDb()
 	migrations.Migrate()
 
