@@ -62,12 +62,6 @@ Response:
 **GET** `/r/:hash`
 - Redirects the user to the original URL.
 
-### Testing
-Run unit tests:
-```sh
-go test ./...
-```
-
 ### License
 This project is licensed under the MIT License. For more information read LICENSE file.
 
